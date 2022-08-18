@@ -66,7 +66,7 @@ namespace GameLibrary.Services.Game
 
             return numberOfChanges == 1;
         }
-        public async Task<bool> DeleteNoteAsync(int gameId)
+        public async Task<bool> DeleteGameAsync(int gameId)
         {
             var gameEntity = await _dbContext.Games.FindAsync(gameId);
 
