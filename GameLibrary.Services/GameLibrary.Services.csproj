@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\GameLibrary.Models\GameLibrary.Models.csproj" />
     <ProjectReference Include="..\GameLibrary.Data\GameLibrary.Data.csproj" />
+    <ProjectReference Include="..\GameLibrary.Models\GameLibrary.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
