@@ -33,6 +33,13 @@ namespace GameLibrary.WebAPI.Controllers
             return Ok(allGames);
         }
 
+        [HttpGet("{Title:string")]
+        public async Task<IActionResult> GetGameListByTitle([FromRoute] string gameTitle)
+        {
+            var gamesByTitle = await _gameServices.GetGameByTitleAsync(gameTitle);
+            return Ok(gamesByTitle);
+        }
+
         [HttpPut]
         public async Task<IActionResult> UpdateGame([FromBody] GameUpdate gameId)
         {
