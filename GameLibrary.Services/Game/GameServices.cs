@@ -31,6 +31,23 @@ namespace GameLibrary.Services.Game
                     .ToListAsync();
 
             return gameList;
+        }
+        public async Task<IEnumerable<GameDetail>> GetGameByTitleAsync(string gameTitle)
+        {
+            var gameEntity = await _dbContext.Games
+                    .Select(entity => new GameDetail
+                    {
+                        Id = entity.Id,
+                        GameTitle = entity.GameTitle,
+                        Description = entity.Description,
+                        Developer = entity.Developer,
+                        ReleaseDate = entity.ReleaseDate,
+                        GameGenre = entity.GameGenre,
+                        GameSystemAvailability = entity.GameSystemAvailability
+                    })
+                    .Where(s => s.GameTitle.Contains(gameTitle)).ToListAsync();
+            return gameEntity;
+
 
         }
         public async Task<bool> CreateGameAsync(CreateGame gameData)
@@ -66,7 +83,7 @@ namespace GameLibrary.Services.Game
 
             return numberOfChanges == 1;
         }
-        public async Task<bool> DeleteNoteAsync(int gameId)
+        public async Task<bool> DeleteGameAsync(int gameId)
         {
             var gameEntity = await _dbContext.Games.FindAsync(gameId);
 
