@@ -9,5 +9,6 @@ namespace GameLibrary.Data.Entities
         public string SystemName { get; set; }
         public string Manufacturer { get; set; }
         public int MaxPlayers { get; set; }
+        public string GameSystemAvailability { get; set; }
     }
 }
